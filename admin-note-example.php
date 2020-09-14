@@ -49,6 +49,12 @@ class My_Great_Extension {
                 return;
             }
         }
+
+        // Our welcome note will include information about when the extension
+        //   was activated.  This is just for demonstration.  You might include
+        //   other logic here depending on what data your note should contain.
+        $activated_time = current_time( 'timestamp', 0);
+        $activated_time_formatted = date( 'F jS', $activated_time );
     }
 
     // We'll call this function when our extension deactivates to remove 
