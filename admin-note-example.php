@@ -61,6 +61,13 @@ class My_Great_Extension {
 
         // Set our note's title.
         $note->set_title( 'Getting Started' );
+
+        // Set our note's content.
+        $note->set_content(
+            sprintf(
+                'Extension activated on %s.', $activated_time_formatted
+            )
+        );
     }
 
     // We'll call this function when our extension deactivates to remove 
