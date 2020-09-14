@@ -87,6 +87,10 @@ class My_Great_Extension {
         // Set the type of layout the note uses.  Supported layout types are:
         //   'banner', 'plain', 'thumbnail'
         $note->set_layout( 'plain' );
+
+        // Set the image for the note.  This property renders as the src
+        //   attribute for an img tag, so use a string here.
+        $note->set_image( '' );
     }
 
     // We'll call this function when our extension deactivates to remove 
