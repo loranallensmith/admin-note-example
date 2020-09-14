@@ -22,6 +22,18 @@ class My_Great_Extension {
     //   since we'll be referencing it in multiple places later.
     const NOTE_NAME = 'mge-activation-notice';
 
+    // We'll call this function to display a welcome note in the inbox
+    //  when the extension activates.
+    public static function add_activity_panel_inbox_welcome_note() {
+
+    }
+
+    // We'll call this function when our extension deactivates to remove 
+    //  the welcome note our extension created.
+    public static function remove_activity_panel_inbox_welcome_notes() {
+
+    }
+
 }
 
 /**
