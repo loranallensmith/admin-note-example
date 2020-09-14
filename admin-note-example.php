@@ -25,7 +25,19 @@ class My_Great_Extension {
     // We'll call this function to display a welcome note in the inbox
     //  when the extension activates.
     public static function add_activity_panel_inbox_welcome_note() {
+        
+        // Check for Admin Note support
+        if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes') ) {
+            return;
+        }
 
+        // Make sure the WooCommerce Data Store is available
+        if ( ! class_exists( 'WC_Data_Store' ) ) {
+            return;
+        }
+
+        // Load the Admin Notes from the WooCommerce Data Store
+        $data_store = WC_Data_Store::load('admin-note');
     }
 
     // We'll call this function when our extension deactivates to remove 
