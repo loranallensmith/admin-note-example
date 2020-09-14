@@ -16,6 +16,10 @@
 use Automattic\WooCommerce\Admin\Notes\WC_Admin_Note;
 use Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes;
 
+class My_Great_Extension {
+    
+}
+
 /**
  * Register the JS.
  */
