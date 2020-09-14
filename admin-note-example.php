@@ -17,7 +17,11 @@ use Automattic\WooCommerce\Admin\Notes\WC_Admin_Note;
 use Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes;
 
 class My_Great_Extension {
-    
+
+    // Using a constant for our note name makes our code easier to maintain
+    //   since we'll be referencing it in multiple places later.
+    const NOTE_NAME = 'mge-activation-notice';
+
 }
 
 /**
