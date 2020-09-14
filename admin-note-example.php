@@ -91,6 +91,14 @@ class My_Great_Extension {
         // Set the image for the note.  This property renders as the src
         //   attribute for an img tag, so use a string here.
         $note->set_image( '' );
+
+
+        // Set the note name and source.  You should store your extension's
+        //   name (slug) in the source property of the note.  You can use
+        //   the name property of the note to support multiple sub-types of
+        //   notes.  This also gives you a handy way of namespacing your notes.
+        $note->set_source( 'inbox-note-example');
+        $note->set_name( self::NOTE_NAME );
     }
 
     // We'll call this function when our extension deactivates to remove 
