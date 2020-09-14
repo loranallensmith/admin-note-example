@@ -55,6 +55,9 @@ class My_Great_Extension {
         //   other logic here depending on what data your note should contain.
         $activated_time = current_time( 'timestamp', 0);
         $activated_time_formatted = date( 'F jS', $activated_time );
+
+        // Instantiate a new Admin_Note object
+        $note = new WC_Admin_Note();
     }
 
     // We'll call this function when our extension deactivates to remove 
