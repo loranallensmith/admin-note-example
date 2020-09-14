@@ -68,6 +68,16 @@ class My_Great_Extension {
                 'Extension activated on %s.', $activated_time_formatted
             )
         );
+        
+        // In addition to content, notes also support structured content.
+        //  You can use this property to re-localize notes on the fly, but
+        //  that is just one use.  You can store other data here too.  This
+        //  is backed by a longtext column in the database.
+        $note->set_content_data( (object) array(
+            'getting_started'       => true,
+            'activated'             => $activated_time,
+            'activated_formatted'   => $activated_time_formatted
+        ) );
     }
 
     // We'll call this function when our extension deactivates to remove 
