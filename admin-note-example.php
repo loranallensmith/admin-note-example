@@ -58,6 +58,9 @@ class My_Great_Extension {
 
         // Instantiate a new Admin_Note object
         $note = new WC_Admin_Note();
+
+        // Set our note's title.
+        $note->set_title( 'Getting Started' );
     }
 
     // We'll call this function when our extension deactivates to remove 
