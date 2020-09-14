@@ -110,6 +110,9 @@ class My_Great_Extension {
         $note->add_action(
             'learn_more', 'Learn More', 'https://example.com'
         );
+
+        // Save the note to lock in our changes.
+        $note->save();
     }
 
     // We'll call this function when our extension deactivates to remove 
