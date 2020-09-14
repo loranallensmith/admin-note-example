@@ -78,6 +78,11 @@ class My_Great_Extension {
             'activated'             => $activated_time,
             'activated_formatted'   => $activated_time_formatted
         ) );
+
+        // Set the type of the note.  Note types are defined as enum-style
+        // constants in the WC_Admin_Note class.  Available note types are:
+        //   error, warning, update, info, marketing
+        $note->set_type( WC_Admin_Note::E_WC_ADMIN_NOTE_INFORMATIONAL );
     }
 
     // We'll call this function when our extension deactivates to remove 
