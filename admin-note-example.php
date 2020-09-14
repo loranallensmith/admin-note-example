@@ -36,6 +36,19 @@ class My_Great_Extension {
 
 }
 
+// Register the activation and deactivation hooks.
+//   We'll put our calls for note creation/deletion inside dedicated
+//   functions to accomodate additional activation/deactivation behavior.
+function my_great_extension_activate() {
+    My_Great_Extension::add_activity_panel_inbox_welcome_note();
+}
+register_activation_hook( __FILE__, 'my_great_extension_activate');
+
+function my_great_extension_deactivate() {
+    My_Great_Extension::remove_activity_panel_inbox_welcome_notes();
+}
+register_deactivation_hook( __FILE__, 'my_great_extension_deactivate');
+
 /**
  * Register the JS.
  */
