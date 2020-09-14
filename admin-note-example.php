@@ -38,6 +38,17 @@ class My_Great_Extension {
 
         // Load the Admin Notes from the WooCommerce Data Store
         $data_store = WC_Data_Store::load('admin-note');
+
+        // Check for existing notes that match our note name and content data.
+        //  This ensures we don't create a duplicate note.
+        $note_ids = $data_store->get_notes_with_name( self::NOTE_NAME );
+        foreach( (array) $note_ids as $note_id ) {
+            $note           = WC_Admin_Notes::get_note( $note_id );
+            $content_data   = $note->get_content_data();
+            if ( property_exists( $content_data, 'getting_started' ) ) {
+                return;
+            }
+        }
     }
 
     // We'll call this function when our extension deactivates to remove 
