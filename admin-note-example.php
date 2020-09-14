@@ -11,6 +11,11 @@
  * @package WC_Admin
  */
 
+
+ // Import WC Admin Classes
+use Automattic\WooCommerce\Admin\Notes\WC_Admin_Note;
+use Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes;
+
 /**
  * Register the JS.
  */
