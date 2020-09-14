@@ -99,6 +99,17 @@ class My_Great_Extension {
         //   notes.  This also gives you a handy way of namespacing your notes.
         $note->set_source( 'inbox-note-example');
         $note->set_name( self::NOTE_NAME );
+
+        // Add action buttons to the note.  A note can support 0, 1, or 2 actions.
+        //   The first parameter is the action name, which can be used for event handling.
+        //   The second parameter renders as the label for the button.
+        //   The third parameter is an optional URL for actions that require navigation.
+        $note->add_action(
+            'settings', 'Open Settings', '?page=wc-settings&tab=general'
+        );
+        $note->add_action(
+            'learn_more', 'Learn More', 'https://example.com'
+        );
     }
 
     // We'll call this function when our extension deactivates to remove 
