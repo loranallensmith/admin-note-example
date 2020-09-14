@@ -83,6 +83,10 @@ class My_Great_Extension {
         // constants in the WC_Admin_Note class.  Available note types are:
         //   error, warning, update, info, marketing
         $note->set_type( WC_Admin_Note::E_WC_ADMIN_NOTE_INFORMATIONAL );
+
+        // Set the type of layout the note uses.  Supported layout types are:
+        //   'banner', 'plain', 'thumbnail'
+        $note->set_layout( 'plain' );
     }
 
     // We'll call this function when our extension deactivates to remove 
