@@ -118,7 +118,10 @@ class My_Great_Extension {
     // We'll call this function when our extension deactivates to remove 
     //  the welcome note our extension created.
     public static function remove_activity_panel_inbox_welcome_notes() {
-
+        if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes' ) ) {
+            return;
+        }
+        WC_Admin_Notes::delete_notes_with_name( self::NOTE_NAME );
     }
 
 }
