@@ -13,8 +13,8 @@
 
 
  // Import WC Admin Classes
-use Automattic\WooCommerce\Admin\Notes\WC_Admin_Note;
-use Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes;
+use Automattic\WooCommerce\Admin\Notes\Note;
+use Automattic\WooCommerce\Admin\Notes\Notes;
 
 class My_Great_Extension {
 
@@ -25,9 +25,9 @@ class My_Great_Extension {
     // We'll call this function to display a welcome note in the inbox
     //  when the extension activates.
     public static function add_activity_panel_inbox_welcome_note() {
-        
+
         // Check for Admin Note support
-        if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes') ) {
+        if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes') ) {
             return;
         }
 
@@ -43,7 +43,7 @@ class My_Great_Extension {
         //  This ensures we don't create a duplicate note.
         $note_ids = $data_store->get_notes_with_name( self::NOTE_NAME );
         foreach( (array) $note_ids as $note_id ) {
-            $note           = WC_Admin_Notes::get_note( $note_id );
+            $note           = Notes::get_note( $note_id );
             $content_data   = $note->get_content_data();
             if ( property_exists( $content_data, 'getting_started' ) ) {
                 return;
@@ -56,8 +56,8 @@ class My_Great_Extension {
         $activated_time = current_time( 'timestamp', 0);
         $activated_time_formatted = date( 'F jS', $activated_time );
 
-        // Instantiate a new Admin_Note object
-        $note = new WC_Admin_Note();
+        // Instantiate a new Note object
+        $note = new Note();
 
         // Set our note's title.
         $note->set_title( 'Getting Started' );
@@ -68,7 +68,7 @@ class My_Great_Extension {
                 'Extension activated on %s.', $activated_time_formatted
             )
         );
-        
+
         // In addition to content, notes also support structured content.
         //  You can use this property to re-localize notes on the fly, but
         //  that is just one use.  You can store other data here too.  This
@@ -80,9 +80,9 @@ class My_Great_Extension {
         ) );
 
         // Set the type of the note.  Note types are defined as enum-style
-        // constants in the WC_Admin_Note class.  Available note types are:
+        // constants in the Note class.  Available note types are:
         //   error, warning, update, info, marketing
-        $note->set_type( WC_Admin_Note::E_WC_ADMIN_NOTE_INFORMATIONAL );
+        $note->set_type( Note::E_WC_ADMIN_NOTE_INFORMATIONAL );
 
         // Set the type of layout the note uses.  Supported layout types are:
         //   'banner', 'plain', 'thumbnail'
@@ -115,13 +115,13 @@ class My_Great_Extension {
         $note->save();
     }
 
-    // We'll call this function when our extension deactivates to remove 
+    // We'll call this function when our extension deactivates to remove
     //  the welcome note our extension created.
     public static function remove_activity_panel_inbox_welcome_notes() {
-        if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes' ) ) {
+        if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
             return;
         }
-        WC_Admin_Notes::delete_notes_with_name( self::NOTE_NAME );
+        Notes::delete_notes_with_name( self::NOTE_NAME );
     }
 
 }
